@@ -40,7 +40,7 @@ public class GadgetServiceImp implements GadgetService {
 	public ResponseEntity<?> getGadget() {
 		List<Gadget> gadget;
 		gadget = gadgetRepo.findAll();
-		if (!gadget.isEmpty()) {
+		if (gadget.isEmpty()) {
 			return ResponseEntity
 					.ok(new MessageResponse(HttpStatus.BAD_REQUEST.value(), env.getProperty("failed.fetched")));
 		}
